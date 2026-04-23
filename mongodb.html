@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitPulse | AI Fitness & Health Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">FITPULSE</div>
+            <div class="user-profile">
+                <span id="user-name">Loading...</span>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Activity Overview -->
+            <div class="card">
+                <h2>📊 Daily Activity</h2>
+                <div class="stat-group">
+                    <div class="stat-item">
+                        <span class="stat-value" id="daily-calories">0</span>
+                        <span class="stat-label">Calories Burned</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="daily-workouts">0</span>
+                        <span class="stat-label">Workouts</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Log Workout -->
+            <div class="card">
+                <h2>💪 Log Workout</h2>
+                <form id="workout-form">
+                    <div class="form-group">
+                        <select id="workout-type" required>
+                            <option value="">Select Type</option>
+                            <option value="Running">Running</option>
+                            <option value="Cycling">Cycling</option>
+                            <option value="Weightlifting">Weightlifting</option>
+                            <option value="Yoga">Yoga</option>
+                            <option value="Swimming">Swimming</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="workout-duration" placeholder="Duration (min)" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="workout-calories" placeholder="Calories Burned">
+                    </div>
+                    <button type="submit">Add Workout</button>
+                </form>
+            </div>
+
+            <!-- Health Monitoring -->
+            <div class="card">
+                <h2>❤️ Health Stats</h2>
+                <form id="health-form">
+                    <div class="stat-group">
+                        <div class="form-group">
+                            <input type="number" id="health-heartrate" placeholder="HR (BPM)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="health-bp" placeholder="BP (e.g. 120/80)">
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <div class="form-group">
+                            <input type="number" step="0.1" id="health-water" placeholder="Water (Liters)">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="health-sleep" placeholder="Sleep (Hours)">
+                        </div>
+                    </div>
+                    <button type="submit">Update Health</button>
+                </form>
+                <div class="history-list" id="health-history" style="margin-top: 1rem;">
+                    <!-- Health items will appear here -->
+                </div>
+            </div>
+
+            <!-- Diet Plan -->
+            <div class="card">
+                <h2>🥗 Diet Tracker</h2>
+                <form id="diet-form">
+                    <div class="form-group">
+                        <input type="text" id="meal-name" placeholder="Meal Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="meal-calories" placeholder="Calories" required>
+                    </div>
+                    <button type="submit">Log Meal</button>
+                </form>
+                <div class="history-list" id="diet-history" style="margin-top: 1rem;">
+                    <!-- Diet items will appear here -->
+                </div>
+            </div>
+
+            <!-- Workout History -->
+            <div class="card" style="grid-column: span 1;">
+                <h2>📜 Workout History</h2>
+                <div class="history-list" id="workout-history">
+                    <!-- History items will appear here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
